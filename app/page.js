@@ -3,27 +3,66 @@ import Image from 'next/image';
 const WHATSAPP = 'https://wa.me/5511981857346';
 const INSTAGRAM = 'https://www.instagram.com/arquiteturamaiss/';
 
+const MEDIA = {
+  hero: {
+    src: '/images/hero.webp',
+    position: 'center',
+    alt: 'Projeto de arquitetura da Arquitetura Mais',
+  },
+  projects: {
+    residential: {
+      src: '/images/residencial.webp',
+      position: 'center',
+    },
+    corporate: {
+      src: '/images/corporativo.webp',
+      position: 'center',
+    },
+    commercial: {
+      src: '/images/comercial.webp',
+      position: 'center',
+    },
+  },
+  statement: {
+    src: '/images/projeto-detalhe.webp',
+    position: 'center',
+    alt: 'Detalhe de projeto da Arquitetura Mais',
+  },
+  founders: {
+    src: '/images/socias.webp',
+    position: 'center',
+    alt: 'Juliana Corradi e Josiany Frediani, da Arquitetura Mais',
+  },
+  team: {
+    src: '/images/equipe.webp',
+    position: 'center',
+    alt: 'Equipe da Arquitetura Mais',
+  },
+  contact: {
+    src: '/images/processo.webp',
+    position: 'center',
+    alt: 'Processo de desenvolvimento de projeto da Arquitetura Mais',
+  },
+};
+
 const projects = [
   {
     number: '01',
     label: 'Residencial',
     title: 'Projetos para viver com identidade e conforto.',
-    image: '/images/residencial.webp',
-    position: 'center',
+    image: MEDIA.projects.residential,
   },
   {
     number: '02',
     label: 'Corporativo',
     title: 'Espaços de trabalho que traduzem cultura e propósito.',
-    image: '/images/corporativo.webp',
-    position: 'center',
+    image: MEDIA.projects.corporate,
   },
   {
     number: '03',
     label: 'Comercial',
     title: 'Arquitetura que aproxima operação, experiência e marca.',
-    image: '/images/comercial.webp',
-    position: 'center',
+    image: MEDIA.projects.commercial,
   },
 ];
 
@@ -65,14 +104,15 @@ export default function Home() {
         </a>
       </header>
 
-      <section id="inicio" className="hero">
+      <section id="inicio" className="hero" data-media-slot="hero">
         <Image
-          src="/images/hero.webp"
-          alt="Projeto de arquitetura da Arquitetura Mais"
+          src={MEDIA.hero.src}
+          alt={MEDIA.hero.alt}
           fill
           priority
           sizes="100vw"
           className="hero-image"
+          style={{ objectPosition: MEDIA.hero.position }}
         />
         <div className="hero-overlay" />
 
@@ -117,15 +157,15 @@ export default function Home() {
 
         <div className="shell project-grid">
           {projects.map((project) => (
-            <article className="project-card" key={project.number}>
+            <article className="project-card" key={project.number} data-media-slot={`project-${project.number}`}>
               <div className="project-image-wrap">
                 <Image
-                  src={project.image}
+                  src={project.image.src}
                   alt={project.title}
                   fill
                   sizes="(max-width: 800px) 100vw, 33vw"
                   className="project-image"
-                  style={{ objectPosition: project.position }}
+                  style={{ objectPosition: project.image.position }}
                 />
               </div>
               <div className="project-meta">
@@ -141,14 +181,15 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="statement">
+      <section className="statement" data-media-slot="statement">
         <div className="statement-image">
           <Image
-            src="/images/projeto-detalhe.webp"
-            alt="Detalhe de projeto corporativo da Arquitetura Mais"
+            src={MEDIA.statement.src}
+            alt={MEDIA.statement.alt}
             fill
             sizes="(max-width: 900px) 100vw, 55vw"
             className="cover"
+            style={{ objectPosition: MEDIA.statement.position }}
           />
         </div>
         <div className="statement-copy">
@@ -176,15 +217,16 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="escritorio" className="studio section">
+      <section id="escritorio" className="studio section" data-media-slot="founders">
         <div className="shell studio-grid">
           <div className="studio-image-wrap">
             <Image
-              src="/images/socias.webp"
-              alt="Juliana Corradi e Josiany Frediani, da Arquitetura Mais"
+              src={MEDIA.founders.src}
+              alt={MEDIA.founders.alt}
               fill
               sizes="(max-width: 900px) 100vw, 48vw"
               className="cover"
+              style={{ objectPosition: MEDIA.founders.position }}
             />
           </div>
 
@@ -212,7 +254,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="team section shell">
+      <section className="team section shell" data-media-slot="team">
         <div className="team-heading">
           <p className="eyebrow">05 · Equipe</p>
           <h2>Arquitetura é trabalho coletivo.</h2>
@@ -220,23 +262,25 @@ export default function Home() {
         </div>
         <div className="team-image-wrap">
           <Image
-            src="/images/equipe.webp"
-            alt="Equipe da Arquitetura Mais"
+            src={MEDIA.team.src}
+            alt={MEDIA.team.alt}
             fill
             sizes="100vw"
             className="cover"
+            style={{ objectPosition: MEDIA.team.position }}
           />
         </div>
       </section>
 
-      <section id="contato" className="contact">
+      <section id="contato" className="contact" data-media-slot="contact">
         <div className="contact-image">
           <Image
-            src="/images/processo.webp"
-            alt="Processo de desenvolvimento de projeto da Arquitetura Mais"
+            src={MEDIA.contact.src}
+            alt={MEDIA.contact.alt}
             fill
             sizes="(max-width: 900px) 100vw, 42vw"
             className="cover"
+            style={{ objectPosition: MEDIA.contact.position }}
           />
         </div>
         <div className="contact-copy">
