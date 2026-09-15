@@ -14,3 +14,7 @@ npm run dev
 ```bash
 npm run build
 ```
+
+## Deploy
+
+O projeto está conectado à Vercel. Commits na branch `main` disparam novo deploy automaticamente.
