@@ -4,44 +4,48 @@ const WHATSAPP = 'https://wa.me/5511981857346';
 const INSTAGRAM = 'https://www.instagram.com/arquiteturamaiss/';
 
 const MEDIA = {
+  logo: {
+    src: '/images/logo-mais-sem-fundo.png',
+    alt: 'Arquitetura Mais',
+  },
   hero: {
-    src: '/images/hero.webp',
-    position: 'center',
-    alt: 'Projeto de arquitetura da Arquitetura Mais',
+    src: '/images/6-1536x864.jpg',
+    position: 'center center',
+    alt: 'Projeto residencial da Arquitetura Mais com ambientes integrados',
   },
   projects: {
     residential: {
-      src: '/images/residencial.webp',
-      position: 'center',
+      src: '/images/funcionalidade.jpg',
+      position: 'center center',
     },
     corporate: {
-      src: '/images/corporativo.webp',
-      position: 'center',
+      src: '/images/comercial.jpg',
+      position: 'center center',
     },
     commercial: {
-      src: '/images/comercial.webp',
-      position: 'center',
+      src: '/images/Funcionalidade1.jpg',
+      position: 'center center',
     },
   },
   statement: {
-    src: '/images/projeto-detalhe.webp',
-    position: 'center',
-    alt: 'Detalhe de projeto da Arquitetura Mais',
+    src: '/images/colaboracao-1536x864.jpg',
+    position: 'center center',
+    alt: 'Ambiente corporativo projetado pela Arquitetura Mais',
   },
   founders: {
-    src: '/images/socias.webp',
-    position: 'center',
-    alt: 'Juliana Corradi e Josiany Frediani, da Arquitetura Mais',
+    src: '/images/IMG_1141.jpg',
+    position: 'center 44%',
+    alt: 'Juliana Corradi e Josiany Frediani, sócias da Arquitetura Mais',
   },
   team: {
-    src: '/images/equipe.webp',
-    position: 'center',
+    src: '/images/IMG_1074.jpg',
+    position: 'center 48%',
     alt: 'Equipe da Arquitetura Mais',
   },
   contact: {
-    src: '/images/processo.webp',
-    position: 'center',
-    alt: 'Processo de desenvolvimento de projeto da Arquitetura Mais',
+    src: '/images/IMG_0405-1536x1024.jpg',
+    position: '35% center',
+    alt: 'Arquiteta da Arquitetura Mais durante o desenvolvimento de um projeto',
   },
 };
 
@@ -89,7 +93,14 @@ export default function Home() {
     <main>
       <header className="site-header">
         <a className="wordmark" href="#inicio" aria-label="Arquitetura Mais - início">
-          Arquitetura Mais
+          <Image
+            src={MEDIA.logo.src}
+            alt={MEDIA.logo.alt}
+            width={180}
+            height={92}
+            priority
+            style={{ width: '132px', height: 'auto', display: 'block' }}
+          />
         </a>
 
         <nav aria-label="Navegação principal">
